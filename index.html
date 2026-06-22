@@ -1,87 +1,683 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Portfolio</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional Portfolio - Web Developer & UI Designer">
+    <title>Professional Portfolio</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="style.css">
 </head>
-
-<body>
-
-<nav>
-    <h2>My Portfolio</h2>
-
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-    </ul>
-
-    <button id="darkBtn">🌙</button>
-</nav>
-
-
-<section id="home" class="hero">
-    <h1>Hello, I'm Your Name</h1>
-    <p>Aspiring Full-Stack Developer</p>
-
-    <button>Hire Me</button>
-</section>
-
-
-<section id="about">
-    <h2>About Me</h2>
-
-    <p>
-        I am learning full-stack development and building projects
-        while improving my coding skills.
-    </p>
-</section>
-
-
-<section id="skills">
-    <h2>Skills</h2>
-
-    <div class="cards">
-
-        <div class="card">HTML</div>
-        <div class="card">CSS</div>
-        <div class="card">JavaScript</div>
-        <div class="card">Node.js</div>
-        <div class="card">React</div>
-
-    </div>
-
-</section>
-
-
-<section id="projects">
-    <h2>Projects</h2>
-
-    <div class="cards">
-
-        <div class="card">
-            <h3>Portfolio Website</h3>
-            <p>My personal website</p>
+<body class="bg-white text-gray-900 font-sans">
+    
+    <!-- ========== NAVIGATION ========== -->
+    <nav class="fixed top-0 w-full bg-white border-b border-gray-200 z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#home" class="text-xl font-bold text-gray-900">Portfolio</a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="nav-link text-gray-900 hover:text-gray-600 transition-colors">Home</a>
+                        <a href="#about" class="nav-link text-gray-600 hover:text-gray-900 transition-colors">About</a>
+                        <a href="#skills" class="nav-link text-gray-600 hover:text-gray-900 transition-colors">Skills</a>
+                        <a href="#projects" class="nav-link text-gray-600 hover:text-gray-900 transition-colors">Projects</a>
+                        <a href="#experience" class="nav-link text-gray-600 hover:text-gray-900 transition-colors">Experience</a>
+                        <a href="#contact" class="nav-link text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-900 hover:text-gray-600 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
         </div>
-
-        <div class="card">
-            <h3>Todo App</h3>
-            <p>Task management app</p>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="nav-link block px-3 py-2 text-gray-900 hover:bg-gray-100 rounded-md">Home</a>
+                <a href="#about" class="nav-link block px-3 py-2 text-gray-900 hover:bg-gray-100 rounded-md">About</a>
+                <a href="#skills" class="nav-link block px-3 py-2 text-gray-900 hover:bg-gray-100 rounded-md">Skills</a>
+                <a href="#projects" class="nav-link block px-3 py-2 text-gray-900 hover:bg-gray-100 rounded-md">Projects</a>
+                <a href="#experience" class="nav-link block px-3 py-2 text-gray-900 hover:bg-gray-100 rounded-md">Experience</a>
+                <a href="#contact" class="nav-link block px-3 py-2 text-gray-900 hover:bg-gray-100 rounded-md">Contact</a>
+            </div>
         </div>
+    </nav>
 
-    </div>
+    <!-- ========== HERO SECTION ========== -->
+    <section id="home" class="pt-32 pb-20 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <!-- Left content -->
+                <div class="space-y-6 fade-in">
+                    <div>
+                        <h1 class="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
+                            John Paulo J. Ibe
+                        </h1>
+                        <p class="text-xl md:text-2xl text-gray-600 mt-4">
+                            Web Developer | Frontend Developer | UI Designer
+                        </p>
+                    </div>
+                    
+                    <p class="text-lg text-gray-700 leading-relaxed max-w-md">
+                        I create elegant, user-focused digital experiences. With expertise in modern web technologies and design principles, I transform ideas into responsive, high-performance applications.
+                    </p>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                        <a href="#contact" class="cta-button bg-gray-900 text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors text-center">
+                            Hire Me
+                        </a>
+                        <a href="assets/Ibe Resume BSIT.pdf" class="cta-button border-2 border-gray-900 text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors text-center">
+                            <i class="fas fa-download mr-2"></i>Download Resume
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Profile Image -->
+                <div class="flex justify-center fade-in-delay">
+                    <div class="w-64 h-64 md:w-80 md:h-80 bg-gray-200 rounded-lg overflow-hidden shadow-lg">
+                        <img src="assets/me.jpg" 
+                             alt="Profile" 
+                             class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-</section>
+    <!-- ========== ABOUT SECTION ========== -->
+    <section id="about" class="py-20 px-4 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-gray-900 mb-12">About Me</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Personal Introduction -->
+                <div class="md:col-span-2 space-y-6">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-4">Who I Am</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            I'm a passionate web developer with a keen eye for design. With over 3 years of experience in building responsive web applications, I've helped numerous clients bring their digital visions to life.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed">
+                            My approach combines technical excellence with user-centered design thinking. I believe in writing clean, maintainable code and creating interfaces that are both beautiful and intuitive.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Education & Quick Info -->
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Education</h3>
+                        <div class="space-y-3">
+                            <div class="pb-3 border-b border-gray-200">
+                                <p class="font-semibold text-gray-900">Bachelor of Science</p>
+                                <p class="text-sm text-gray-600">Information Technology</p>
+                                <p class="text-sm text-gray-500">2022 - 2026</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Experience Overview -->
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-6">Experience</h3>
+                    <div class="space-y-6">
+                        <!-- Experience 1 -->
+                        <div class="pb-6 border-b border-gray-200">
+                            <h4 class="font-semibold text-gray-900">Intern Full stack Developer</h4>
+                            <p class="text-sm text-gray-600 mb-2">Self-study | 2026 </p>
+                            <p class="text-gray-700 text-sm">Aspiring Full-Stack Developer with a passion for building user-friendly web applications and continuously learning modern technologies.</p>
+                        </div>
+                        
+                        <!-- Experience 2 -->
+                        <div class="pb-6 border-b border-gray-200">
+                            <h4 class="font-semibold text-gray-900">Intern Tech Support</h4>
+                            <p class="text-sm text-gray-600 mb-2">Titan Collection Credit Management Inc. | 2026</p>
+                            <p class="text-gray-700 text-sm">Assisted in troubleshooting hardware, software, and network issues while providing technical support to users.</p>
+                        </div>
+                        
+                        <!-- Experience 3 -->
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Deso IT Support</h4>
+                            <p class="text-sm text-gray-600 mb-2">Government Election Commission & Committee Roles| 2020 - 2022</p>
+                            <p class="text-gray-700 text-sm">Assisted with the setup, maintenance, and troubleshooting of election technology and equipment during the election process.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Career Goals -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-6">Career Goals</h3>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-white rounded-lg border border-gray-200">
+                            <h4 class="font-semibold text-gray-900 mb-2">2026</h4>
+                            <p class="text-gray-700 text-sm">Grow into a Full-Stack Developer capable of building scalable and user-friendly web applications.</p>
+                        </div>
+                        <div class="p-4 bg-white rounded-lg border border-gray-200">
+                            <h4 class="font-semibold text-gray-900 mb-2">2023-2025</h4>
+                            <p class="text-gray-700 text-sm">Enhance my skills in web development, software testing, and modern development technologies.</p>
+                        </div>
+                        <div class="p-4 bg-white rounded-lg border border-gray-200">
+                            <h4 class="font-semibold text-gray-900 mb-2">2020</h4>
+                            <p class="text-gray-700 text-sm">Start my career in IT Support, Technical Support, or Quality Assurance while gaining hands-on industry experience.</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SKILLS SECTION ========== -->
+    <section id="skills" class="py-20 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-gray-900 mb-12">Skills & Expertise</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Technical Skills -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-6">Technical Skills</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-badge">HTML5</span>
+                        <span class="skill-badge">CSS3</span>
+                        <span class="skill-badge">JavaScript</span>
+                        <span class="skill-badge">React</span>
+                        <span class="skill-badge">Tailwind CSS</span>
+                        <span class="skill-badge">Node.js</span>
+                        <span class="skill-badge">Git</span>
+                        <span class="skill-badge">REST APIs</span>
+                        <span class="skill-badge">MySQL</span>
+                        <span class="skill-badge">Firebase</span>
+                    </div>
+                </div>
+                
+                <!-- Design Skills -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-6">Design Skills</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-badge">UI Design</span>
+                        <span class="skill-badge">UX Design</span>
+                        <span class="skill-badge">Figma</span>
+                        <span class="skill-badge">Responsive Design</span>
+                        <span class="skill-badge">Prototyping</span>
+                        <span class="skill-badge">Wireframing</span>
+                        <span class="skill-badge">Design Systems</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Proficiency Levels -->
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-6">Proficiency Levels</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-900 font-semibold">React</span>
+                                <span class="text-gray-600 text-sm">77%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-gray-900 h-2 rounded-full" style="width: 77%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-900 font-semibold">JavaScript</span>
+                                <span class="text-gray-600 text-sm">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-gray-900 h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-900 font-semibold">UI/UX Design</span>
+                                <span class="text-gray-600 text-sm">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-gray-900 h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-900 font-semibold">CSS/Tailwind</span>
+                                <span class="text-gray-600 text-sm">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-gray-900 h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PROJECTS SECTION ========== -->
+    <section id="projects" class="py-20 px-4 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-gray-900 mb-12">Featured Projects</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <div class="h-48 bg-gray-300 overflow-hidden">
+                        <img src="assets/Project 1.png" 
+                             alt="Project 1" 
+                             class="w-full h-full object-cover hover:scale-105 transition-transform">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Vinno: Smart Circuit Breaker System via Application</h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            VINNO Smart Circuit Breaker System is an IoT-based system that allows users to monitor and control their circuit breaker through a mobile application. It enables remote switching, real-time monitoring, and fault notifications, improving electrical safety, convenience, and energy management.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">FLUTTER</span>
+                            <span class="tech-tag">HTML/CSS</span>
+                            <span class="tech-tag">FIREBASE</span>
+                            <span class="tech-tag">ANDROID STUDIO</span>
+                            <span class="tech-tag">C++</span>
+                            <span class="tech-tag">Tailwind</span>
+                        </div>
+        <!--Project 1    <div class="flex gap-3">
+                            <a href="#" class="flex-1 text-center py-2 bg-gray-900 text-white rounded font-semibold hover:bg-gray-800 transition-colors text-sm">
+                                <i class="fas fa-link mr-1"></i>Live Demo
+                            </a>
+                            <a href="#" class="flex-1 text-center py-2 border-2 border-gray-900 text-gray-900 rounded font-semibold hover:bg-gray-50 transition-colors text-sm">
+                                <i class="fab fa-github mr-1"></i>GitHub
+                            </a>
+                        </div>  
+                        -->
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <div class="h-48 bg-gray-300 overflow-hidden">
+                        <img src="assets/Project 2.png" 
+                             alt="Project 2" 
+                             class="w-full h-full object-cover hover:scale-105 transition-transform">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Labula</h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            LaBula Laundry Shop is a web-based laundry management system created to simplify laundry service operations. It enables users to track orders, receive updates, and manage laundry services efficiently through an easy-to-use platform.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Figma</span>
+                            <span class="tech-tag">Tailwind CSS</span>
+                        </div>
+     <!-- Project 2    <div class="flex gap-3">
+                            <a href="#" class="flex-1 text-center py-2 bg-gray-900 text-white rounded font-semibold hover:bg-gray-800 transition-colors text-sm">
+                                <i class="fas fa-link mr-1"></i>Live Demo
+                            </a>
+                            <a href="#" class="flex-1 text-center py-2 border-2 border-gray-900 text-gray-900 rounded font-semibold hover:bg-gray-50 transition-colors text-sm">
+                                <i class="fab fa-github mr-1"></i>GitHub
+                            </a>
+                        </div>
+                        -->
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <div class="h-48 bg-gray-300 overflow-hidden">
+                        <img src="https://via.placeholder.com/400x300?text=Project+3" 
+                             alt="Project 3" 
+                             class="w-full h-full object-cover hover:scale-105 transition-transform">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Natania Homes</h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            -----
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">HTML/CSS</span>
+                            <span class="tech-tag">PHPn</span>
+                            <span class="tech-tag">VANILLA JS</span>
+                            <span class="tech-tag">MYSQL</span>
+                        </div>
+        <!--Project 3   <div class="flex gap-3">
+                            <a href="#" class="flex-1 text-center py-2 bg-gray-900 text-white rounded font-semibold hover:bg-gray-800 transition-colors text-sm">
+                                <i class="fas fa-link mr-1"></i>Live Demo
+                            </a>
+                            <a href="#" class="flex-1 text-center py-2 border-2 border-gray-900 text-gray-900 rounded font-semibold hover:bg-gray-50 transition-colors text-sm">
+                                <i class="fab fa-github mr-1"></i>GitHub
+                            </a>
+                        </div>
+                        -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== WHY HIRE ME SECTION ========== -->
+    <section id="why-hire" class="py-20 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-gray-900 mb-12">Why Hire Me?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Fast Learner -->
+                <div class="text-center p-6">
+                    <div class="flex justify-center mb-4">
+                        <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-rocket text-2xl text-gray-900"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Fast Learner</h3>
+                    <p class="text-gray-600">Quickly adapts to new technologies and frameworks, staying updated with industry trends.</p>
+                </div>
+                
+                <!-- Team Player -->
+                <div class="text-center p-6">
+                    <div class="flex justify-center mb-4">
+                        <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-users text-2xl text-gray-900"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Team Player</h3>
+                    <p class="text-gray-600">Collaborates effectively with designers, backend developers, and stakeholders.</p>
+                </div>
+                
+                <!-- Problem Solver -->
+                <div class="text-center p-6">
+                    <div class="flex justify-center mb-4">
+                        <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-lightbulb text-2xl text-gray-900"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Problem Solver</h3>
+                    <p class="text-gray-600">Analyzes complex challenges and implements creative, efficient solutions.</p>
+                </div>
+                
+                <!-- Creative -->
+                <div class="text-center p-6">
+                    <div class="flex justify-center mb-4">
+                        <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-palette text-2xl text-gray-900"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Creative</h3>
+                    <p class="text-gray-600">Combines technical expertise with design thinking to create beautiful experiences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== EXPERIENCE & ACHIEVEMENTS SECTION ========== -->
+    <section id="experience" class="py-20 px-4 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-gray-900 mb-12">Achievements & Certifications</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Certifications -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-6">Certifications</h3>
+                    <div class="space-y-4">
+                        <div class="p-4 border-l-4 border-gray-900 bg-white rounded">
+                            <h4 class="font-semibold text-gray-900"> SHE++ Workshop on Design Thinking</h4>
+                            <p class="text-sm text-gray-600">Pamantasan ng Lungsod ng Pasig | 2025</p>
+                            <p class="text-sm text-gray-700 mt-2">Mastered advanced React concepts including hooks, context, and performance optimization.</p>
+                        </div>
+                        
+                        <div class="p-4 border-l-4 border-gray-900 bg-white rounded">
+                            <h4 class="font-semibold text-gray-900"> Strategic Foresight and Intro to Technopreneurship</h4>
+                            <p class="text-sm text-gray-600">Pamantasan ng Lungsod ng Pasig | 2025</p>
+                            <p class="text-sm text-gray-700 mt-2">Completed comprehensive course covering frontend and backend technologies.</p>
+                        </div>
+                        <div class="p-4 border-l-4 border-gray-900 bg-white rounded">
+                            <h4 class="font-semibold text-gray-900">TESDA National Certificate II (NC II) – Computer Systems Servicing</h4>
+                            <p class="text-sm text-gray-600">Tesda | 2025</p>
+                            <p class="text-sm text-gray-700 mt-2">Learned user research, wireframing, prototyping, and design systems.</p>
+                        </div>
+                        <div class="p-4 border-l-4 border-gray-900 bg-white rounded">
+                            <h4 class="font-semibold text-gray-900">Java Programming Basics</h4>
+                            <p class="text-sm text-gray-600">UDEMY | 2023</p>
+                            <p class="text-sm text-gray-700 mt-2">Learned user research, wireframing, prototyping, and design systems.</p>
+                        </div>
+                        <div class="p-4 border-l-4 border-gray-900 bg-white rounded">
+                            <h4 class="font-semibold text-gray-900">Microsoft PowerPoint School to Corporate Basic to Advanced</h4>
+                            <p class="text-sm text-gray-600">UDEMY | 2023</p>
+                            <p class="text-sm text-gray-700 mt-2">Learned user research, wireframing, prototyping, and design systems.</p>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <!-- Awards & Accomplishments -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-6">Awards & Accomplishments</h3>
+                    <div class="space-y-4">
+
+                        <div class="p-4 border-l-4 border-gray-900 bg-white rounded">
+                            <h4 class="font-semibold text-gray-900">Bachelor of Science in Information Technology</h4>
+                            <p class="text-sm text-gray-600">Pamantasan ng Lungsod ng Pasig | 2026</p>
+                            <p class="text-sm text-gray-700 mt-2">Successfully earned a Bachelor of Science in Information Technology Degree, demonstrating dedication to academic and professional growth.</p>
+                        </div>
+
+                        <div class="p-4 border-l-4 border-gray-900 bg-white rounded">
+                            <h4 class="font-semibold text-gray-900">Internship</h4>
+                            <p class="text-sm text-gray-600">Titan Collection and Credit Management inc. | 2026</p>
+                            <p class="text-sm text-gray-700 mt-2">In recognition of his efforts and achievements in completing the 486-hour internship program in IT Department</p>
+                        </div>
 
 
-<footer>
-    <p>Made by Your Name</p>
-</footer>
+                        <div class="p-4 border-l-4 border-gray-900 bg-white rounded">
+                            <h4 class="font-semibold text-gray-900">Dean's List</h4>
+                            <p class="text-sm text-gray-600">Pamantasan ng Lungsod ng Pasig | 2022-2025</p>
+                            <p class="text-sm text-gray-700 mt-2">Recognized for outstanding academic performance.</p>
+                        </div>
+                        
+                        <div class="p-4 border-l-4 border-gray-900 bg-white rounded">
+                            <h4 class="font-semibold text-gray-900">Introduction to Web Development</h4>
+                            <p class="text-sm text-gray-600">Tesda | 2024</p>
+                            <p class="text-sm text-gray-700 mt-2">Achieved 40% improvement in application load times through optimization.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<script src="script.js"></script>
+    <!-- ========== CONTACT SECTION ========== -->
+    <section id="contact" class="py-20 px-4 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold text-gray-900 mb-12 text-center">Let's Get In Touch</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Contact Information -->
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-6">Contact Information</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope text-gray-900 mt-1 mr-4 text-lg"></i>
+                                <div>
+                                    <p class="text-gray-600 text-sm font-semibold">Email</p>
+                                    <a href="mailto:your.email@example.com" class="text-gray-900 hover:text-gray-600 transition-colors">
+                                        johnpauloibe.bsit@gmail.com
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fas fa-phone text-gray-900 mt-1 mr-4 text-lg"></i>
+                                <div>
+                                    <p class="text-gray-600 text-sm font-semibold">Phone</p>
+                                    <a href="tel:+1234567890" class="text-gray-900 hover:text-gray-600 transition-colors">
+                                        
+                                        +63 976 179 3845
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-gray-900 mt-1 mr-4 text-lg"></i>
+                                <div>
+                                    <p class="text-gray-600 text-sm font-semibold">Location</p>
+                                    <p class="text-gray-900">Pasig City, National Capital Region, Philippines</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Media -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Connect With Me</h3>
+                        <div class="flex gap-4">
+                            <a href="https://www.linkedin.com/in/john-paulo-ibe-ab7aa5398" class="w-12 h-12 bg-gray-900 text-white rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/aileriesies" class="w-12 h-12 bg-gray-900 text-white rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.instagram.com/aileriesies/" class="w-12 h-12 bg-gray-900 text-white rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.facebook.com/ibejohnpaulo" class="w-12 h-12 bg-gray-900 text-white rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors" title="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-6">Send Me a Message</h3>
+                    <form id="contact-form" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-gray-900 font-semibold mb-2">Name</label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                name="name" 
+                                required
+                                placeholder="Your name"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-gray-900 transition-colors"
+                            >
+                            <span class="error-message text-red-600 text-sm hidden"></span>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-gray-900 font-semibold mb-2">Email</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                required
+                                placeholder="your.email@example.com"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-gray-900 transition-colors"
+                            >
+                            <span class="error-message text-red-600 text-sm hidden"></span>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-gray-900 font-semibold mb-2">Message</label>
+                            <textarea 
+                                id="message" 
+                                name="message" 
+                                required
+                                rows="5"
+                                placeholder="Your message here..."
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-gray-900 transition-colors resize-none"
+                            ></textarea>
+                            <span class="error-message text-red-600 text-sm hidden"></span>
+                        </div>
+                        
+                        <button 
+                            type="submit" 
+                            class="w-full bg-gray-900 text-white py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors"
+                        >
+                            Send Message
+                        </button>
+                        
+                        <div id="form-status" class="text-center text-sm font-semibold hidden"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- ========== FOOTER ========== -->
+    <footer class="bg-gray-900 text-white py-12 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <!-- About Footer -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Portfolio</h4>
+                    <p class="text-gray-400 text-sm">
+                        A professional portfolio showcasing my work, skills, and experience as a web developer and designer.
+                    </p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a></li>
+                        <li><a href="#projects" class="text-gray-400 hover:text-white transition-colors">Projects</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Social Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Follow Me</h4>
+                    <div class="flex gap-4">
+                        <a href="https://www.linkedin.com/in/john-paulo-ibe-ab7aa5398" class="text-gray-400 hover:text-white transition-colors text-lg">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/aileriesies" class="text-gray-400 hover:text-white transition-colors text-lg">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.instagram.com/aileriesies/" class="text-gray-400 hover:text-white transition-colors text-lg">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/ibejohnpaulo" class="text-gray-400 hover:text-white transition-colors text-lg">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    &copy; 2024 [Your Name]. All rights reserved.
+                </p>
+                <a href="#home" id="scroll-to-top" class="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+                    Back to top <i class="fas fa-arrow-up"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
 </body>
 </html>
