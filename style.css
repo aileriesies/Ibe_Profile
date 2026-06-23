@@ -1,0 +1,261 @@
+/* ========== CUSTOM STYLES & ANIMATIONS ========== */
+
+/* Smooth scrolling behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* ========== FADE-IN ANIMATIONS ========== */
+
+/* Initial fade-in for hero section elements */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-out;
+}
+
+.fade-in-delay {
+    animation: fadeIn 0.8s ease-out 0.2s both;
+}
+
+/* ========== SCROLL ANIMATION ========== */
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.scroll-animate {
+    animation: slideInUp 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+/* ========== SKILL BADGES ========== */
+
+.skill-badge {
+    display: inline-block;
+    background-color: #f3f4f6;
+    color: #1f2937;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.skill-badge:hover {
+    background-color: #e5e7eb;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ========== TECH TAGS ========== */
+
+.tech-tag {
+    display: inline-block;
+    background-color: #f0f0f0;
+    color: #666;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ========== PROJECT CARDS ========== */
+
+.project-card {
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+/* ========== CTA BUTTONS ========== */
+
+.cta-button {
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.cta-button:active {
+    transform: scale(0.98);
+}
+
+/* ========== NAVIGATION ACTIVE STATE ========== */
+
+.nav-link {
+    position: relative;
+    text-decoration: none;
+}
+
+.nav-link.active {
+    color: #1f2937 !important;
+    font-weight: 600;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #1f2937;
+    border-radius: 1px;
+}
+
+/* ========== FOCUS STYLES FOR ACCESSIBILITY ========== */
+
+button:focus,
+input:focus,
+textarea:focus,
+a:focus {
+    outline: 2px solid #1f2937;
+    outline-offset: 2px;
+}
+
+/* ========== FORM STYLES ========== */
+
+input[type="text"],
+input[type="email"],
+textarea {
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    box-shadow: 0 0 0 3px rgba(31, 41, 55, 0.1);
+}
+
+/* Input placeholder styling */
+input::placeholder,
+textarea::placeholder {
+    color: #d1d5db;
+}
+
+/* ========== ERROR STATES ========== */
+
+input.error,
+textarea.error {
+    border-color: #ef4444 !important;
+    background-color: #fef2f2;
+}
+
+.error-message {
+    display: block !important;
+}
+
+/* ========== SUCCESS STATES ========== */
+
+#form-status.success {
+    color: #10b981;
+    display: block !important;
+}
+
+#form-status.error {
+    color: #ef4444;
+    display: block !important;
+}
+
+/* ========== RESPONSIVE ADJUSTMENTS ========== */
+
+@media (max-width: 768px) {
+    .nav-link.active::after {
+        display: none;
+    }
+    
+    .nav-link.active {
+        background-color: #f3f4f6;
+        border-radius: 0.375rem;
+    }
+}
+
+/* ========== UTILITY CLASSES ========== */
+
+.transition-all {
+    transition: all 0.3s ease;
+}
+
+.transition-colors {
+    transition: color 0.3s ease;
+}
+
+.transition-transform {
+    transition: transform 0.3s ease;
+}
+
+/* ========== SECTION SPACING ========== */
+
+section {
+    position: relative;
+}
+
+/* ========== REDUCED MOTION PREFERENCE ========== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ========== PRINT STYLES ========== */
+
+@media print {
+    nav,
+    footer {
+        display: none;
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+    
+    a {
+        text-decoration: underline;
+    }
+}
