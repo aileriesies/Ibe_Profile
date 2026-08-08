@@ -1,21 +1,32 @@
-/*  CUSTOM STYLES & ANIMATIONS  */
+/* ============================================================
+   CUSTOM STYLES & ANIMATIONS
+   ============================================================ */
 
-/* Smooth scrolling behavior */
+/* ============================================================
+   BASE
+   ============================================================ */
+
 html {
     scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
+body {
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* ============================================================
+   CUSTOM SCROLLBAR
+   ============================================================ */
+
 ::-webkit-scrollbar {
     width: 12px;
 }
 
 ::-webkit-scrollbar-track {
     background: #f1f1f1;
-}
-
-.dark ::-webkit-scrollbar-track {
-    background: #111827;
 }
 
 .dark ::-webkit-scrollbar-track {
@@ -31,28 +42,37 @@ html {
     background: #555;
 }
 
-/*  3D BACKGROUND  */
+
+/* ============================================================
+   3D BACKGROUND
+   ============================================================ */
 
 #bg-canvas {
     position: fixed;
     top: 0;
     left: 0;
+
     width: 100vw;
     height: 100vh;
+
     z-index: -1;
     display: block;
+
+    /* IMPORTANT:
+       Canvas never blocks buttons/links */
     pointer-events: none;
 }
 
-/* Sections stay transparent where they should show the 3D backdrop behind them.
-   Sections with an explicit bg color (bg-gray-50 / bg-gray-900) already sit on top. */
 
-/*  SCROLLING TICKER ANIMATION  */
+/* ============================================================
+   SCROLLING TICKER ANIMATION
+   ============================================================ */
 
 @keyframes scroll-left {
     0% {
         transform: translateX(0);
     }
+
     100% {
         transform: translateX(-100%);
     }
@@ -62,7 +82,6 @@ html {
     animation: scroll-left 30s linear infinite;
 }
 
-/* Pause animation on hover for better UX */
 .ticker-group:hover {
     animation-play-state: paused;
 }
@@ -74,48 +93,22 @@ html {
 
 .tech-item:hover {
     transform: translateY(-4px);
-    filter: drop-shadow(0 4px 12px rgba(6, 182, 212, 0.2));
+    filter: drop-shadow(
+        0 4px 12px rgba(6, 182, 212, 0.2)
+    );
 }
 
-/*  3D BACKGROUND  */
 
-#bg-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-    display: block;
-    pointer-events: none;
-}
-
-/* Sections stay transparent where they should show the 3D backdrop behind them.
-   Sections with an explicit bg color (bg-gray-50 / bg-gray-900) already sit on top. */
-
-/*  3D BACKGROUND  */
-
-#bg-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-    display: block;
-    pointer-events: none;
-}
-
-/* Sections stay transparent where they should show the 3D backdrop behind them.
-   Sections with an explicit bg color (bg-gray-50 / bg-gray-900) already sit on top. */
-
-/*  FADE-IN ANIMATIONS  */
+/* ============================================================
+   FADE-IN ANIMATIONS
+   ============================================================ */
 
 @keyframes fadeIn {
     from {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -130,13 +123,17 @@ html {
     animation: fadeIn 0.8s ease-out 0.2s both;
 }
 
-/*  SCROLL ANIMATIONS  */
+
+/* ============================================================
+   SCROLL ANIMATIONS
+   ============================================================ */
 
 @keyframes slideInUp {
     from {
         opacity: 0;
         transform: translateY(40px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -148,20 +145,39 @@ html {
     opacity: 0;
 }
 
-/* Stagger animation for multiple elements */
-.scroll-animate:nth-child(1) { animation-delay: 0s; }
-.scroll-animate:nth-child(2) { animation-delay: 0.1s; }
-.scroll-animate:nth-child(3) { animation-delay: 0.2s; }
-.scroll-animate:nth-child(4) { animation-delay: 0.3s; }
-.scroll-animate:nth-child(5) { animation-delay: 0.4s; }
+.scroll-animate:nth-child(1) {
+    animation-delay: 0s;
+}
 
-/*  PROJECT CARDS  */
+.scroll-animate:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.scroll-animate:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.scroll-animate:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.scroll-animate:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+
+/* ============================================================
+   PROJECT CARDS
+   ============================================================ */
 
 .project-card {
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition:
+        all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
     height: 100%;
     display: flex;
     flex-direction: column;
+
     border: 1px solid #e2e8f0;
 }
 
@@ -171,94 +187,139 @@ html {
 }
 
 .project-card img {
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition:
+        transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/*  SKILL BADGES  */
+
+/* ============================================================
+   SKILL BADGES
+   ============================================================ */
 
 .skill-badge {
     display: inline-block;
-    background: linear-gradient(135deg, #f0f4f8 0%, #e8f1f8 100%);
-    color: #1e293b;
+
+    background: linear-gradient(
+        135deg,
+        #f0f4f8 0%,
+        #e8f1f8 100%
+    );
+
+    color: #111827;
+
     padding: 0.625rem 1.125rem;
+
     border-radius: 0.625rem;
+
     font-size: 0.875rem;
     font-weight: 600;
+
     border: 1.5px solid #cbd5e1;
+
     transition: all 0.3s ease;
+
     cursor: default;
 }
 
 .skill-badge:hover {
-    background: linear-gradient(135deg, #e0f2fe 0%, #cffafe 100%);
+    background: linear-gradient(
+        135deg,
+        #e0f2fe 0%,
+        #cffafe 100%
+    );
+
     border-color: #06b6d4;
+
     transform: translateY(-2px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    box-shadow:
+        0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Dark mode */
 .dark .skill-badge {
-    background-color: #1f2937;
-    color: #f3f4f6;
-    border-color: #374151;
+    background: linear-gradient(
+        135deg,
+        #1e293b 0%,
+        #263449 100%
+    );
+
+    color: #f8fafc !important;
+
+    border-color: #475569;
 }
 
 .dark .skill-badge:hover {
-    background-color: #374151;
+    background: linear-gradient(
+        135deg,
+        #263449 0%,
+        #334155 100%
+    );
+
+    border-color: #06b6d4;
 }
 
-.dark .skill-badge {
-    background-color: #1f2937;
-    color: #f3f4f6;
-    border-color: #374151;
-}
 
-.dark .skill-badge:hover {
-    background-color: #374151;
-}
-
-/*  TECH TAGS  */
+/* ============================================================
+   TECH TAGS
+   ============================================================ */
 
 .tech-tag {
     display: inline-block;
-    background: linear-gradient(135deg, #eff6ff 0%, #e0f2fe 100%);
+
+    background: linear-gradient(
+        135deg,
+        #eff6ff 0%,
+        #e0f2fe 100%
+    );
+
     color: #0369a1;
+
     padding: 0.375rem 0.875rem;
+
     border-radius: 0.5rem;
+
     font-size: 0.75rem;
     font-weight: 700;
+
     text-transform: uppercase;
     letter-spacing: 0.5px;
-}
 
-.dark .tech-tag {
-    background-color: #1f2937;
-    color: #9ca3af;
-}
-
-.dark .tech-tag {
-    background-color: #1f2937;
-    color: #9ca3af;
-}
-
-/*  PROJECT CARDS  */
-
-.project-card {
     transition: all 0.3s ease;
 }
 
 .tech-tag:hover {
-    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+    background: linear-gradient(
+        135deg,
+        #06b6d4 0%,
+        #0891b2 100%
+    );
+
     color: white;
+
     border-color: #06b6d4;
 }
 
-/* ========== CTA BUTTONS ========== */
+.dark .tech-tag {
+    background: #1f2937;
+    color: #9ca3af;
+}
+
+
+/* ============================================================
+   CTA BUTTONS
+   ============================================================ */
 
 .cta-button {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition:
+        all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
     text-decoration: none;
+
     display: inline-block;
+
     border-radius: 0.5rem;
+
     font-weight: 600;
 }
 
@@ -270,19 +331,31 @@ html {
     transform: scale(0.98);
 }
 
-/*  FILTER BUTTONS  */
+
+/* ============================================================
+   FILTER BUTTONS
+   ============================================================ */
 
 .filter-btn {
     padding: 0.75rem 1.5rem;
+
     border: 2px solid #e2e8f0;
+
     background: white;
     color: #475569;
+
     border-radius: 0.75rem;
+
     font-weight: 600;
+
     cursor: pointer;
+
     transition: all 0.3s ease;
+
     text-transform: uppercase;
+
     font-size: 0.875rem;
+
     letter-spacing: 0.5px;
 }
 
@@ -292,17 +365,30 @@ html {
 }
 
 .filter-btn.active {
-    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+    background: linear-gradient(
+        135deg,
+        #06b6d4 0%,
+        #0891b2 100%
+    );
+
     color: white;
+
     border-color: transparent;
-    box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
+
+    box-shadow:
+        0 4px 12px rgba(6, 182, 212, 0.3);
 }
 
-/*  NAVIGATION ACTIVE STATE  */
+
+/* ============================================================
+   NAVIGATION ACTIVE STATE
+   ============================================================ */
 
 .nav-link {
     position: relative;
+
     text-decoration: none;
+
     transition: color 0.3s ease;
 }
 
@@ -315,18 +401,23 @@ html {
     color: #ffffff !important;
 }
 
-.dark .nav-link.active {
-    color: #ffffff !important;
-}
-
 .nav-link.active::after {
     content: '';
+
     position: absolute;
+
     bottom: -8px;
     left: 0;
     right: 0;
+
     height: 2.5px;
-    background: linear-gradient(90deg, #06b6d4 0%, #0891b2 100%);
+
+    background: linear-gradient(
+        90deg,
+        #06b6d4 0%,
+        #0891b2 100%
+    );
+
     border-radius: 2px;
 }
 
@@ -334,11 +425,10 @@ html {
     background-color: #ffffff;
 }
 
-.dark .nav-link.active::after {
-    background-color: #ffffff;
-}
 
-/*  FOCUS STYLES FOR ACCESSIBILITY  */
+/* ============================================================
+   FOCUS STYLES
+   ============================================================ */
 
 button:focus,
 input:focus,
@@ -355,14 +445,10 @@ a:focus {
     outline-color: #ffffff;
 }
 
-.dark button:focus,
-.dark input:focus,
-.dark textarea:focus,
-.dark a:focus {
-    outline-color: #ffffff;
-}
 
-/*  FORM STYLES  */
+/* ============================================================
+   FORM STYLES
+   ============================================================ */
 
 input[type="text"],
 input[type="email"],
@@ -371,22 +457,24 @@ textarea {
     background-color: white;
 }
 
+.dark input[type="text"],
+.dark input[type="email"],
+.dark textarea {
+    background-color: #1f2937;
+}
+
 input[type="text"]:focus,
 input[type="email"]:focus,
 textarea:focus {
-    box-shadow: 0 0 0 3px rgba(31, 41, 55, 0.1);
+    box-shadow:
+        0 0 0 3px rgba(31, 41, 55, 0.1);
 }
 
 .dark input[type="text"]:focus,
 .dark input[type="email"]:focus,
 .dark textarea:focus {
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
-}
-
-.dark input[type="text"]:focus,
-.dark input[type="email"]:focus,
-.dark textarea:focus {
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+    box-shadow:
+        0 0 0 3px rgba(255, 255, 255, 0.1);
 }
 
 input::placeholder,
@@ -399,12 +487,10 @@ textarea::placeholder {
     color: #6b7280;
 }
 
-.dark input::placeholder,
-.dark textarea::placeholder {
-    color: #6b7280;
-}
 
-/*  ERROR STATES  */
+/* ============================================================
+   ERROR STATES
+   ============================================================ */
 
 input.error,
 textarea.error {
@@ -417,90 +503,182 @@ textarea.error {
     background-color: rgba(239, 68, 68, 0.1);
 }
 
-.dark input.error,
-.dark textarea.error {
-    background-color: rgba(239, 68, 68, 0.1);
-}
-
 .error-message {
     display: block !important;
 }
 
-/*  SUCCESS/ERROR STATES  */
+
+/* ============================================================
+   FORM SUCCESS / ERROR
+   ============================================================ */
 
 #form-status.success {
     color: #10b981;
+
     padding: 1rem;
+
     background: #d1fae5;
+
     border-radius: 0.5rem;
+
     border-left: 4px solid #10b981;
+
     display: block !important;
+
     animation: slideInUp 0.4s ease;
 }
 
 #form-status.error {
     color: #ef4444;
+
     padding: 1rem;
+
     background: #fee2e2;
+
     border-radius: 0.5rem;
+
     border-left: 4px solid #ef4444;
+
     display: block !important;
 }
 
-/*  THEME SWITCHER  */
+
+/* ============================================================
+   THEME SWITCHER
+   ============================================================ */
+
+#theme-switcher,
+#theme-switcher-mobile {
+    position: relative;
+    z-index: 9999;
+}
+
+/* Theme toggle button */
+
+#theme-toggle-btn,
+#theme-toggle-btn-mobile {
+    position: relative;
+
+    z-index: 10000;
+
+    cursor: pointer !important;
+
+    pointer-events: auto !important;
+}
+
+/* Icons do not intercept button clicks */
+
+#theme-toggle-btn i,
+#theme-toggle-btn-mobile i {
+    pointer-events: none;
+}
+
+
+/* ------------------------------------------------------------
+   Theme dropdown
+   ------------------------------------------------------------ */
 
 .theme-menu {
     position: absolute;
+
     top: calc(100% + 10px);
+
     right: 0;
+
+    min-width: 140px;
+
+    padding: 0.375rem;
+
     background: #ffffff;
+
     border: 1px solid #e5e7eb;
+
     border-radius: 0.75rem;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-    padding: 0.375rem;
-    min-width: 140px;
-    z-index: 60;
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.12);
+
+    z-index: 10001;
+
     opacity: 0;
+
     visibility: hidden;
+
     pointer-events: none;
+
     transform: translateY(-6px);
-    transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s ease;
+
+    transition:
+        opacity 0.15s ease,
+        transform 0.15s ease,
+        visibility 0.15s ease;
 }
 
-.theme-menu.show,
-.theme-menu.active,
-.theme-menu.open {
+
+/* ------------------------------------------------------------
+   IMPORTANT:
+   JavaScript removes "hidden" when opened.
+   ------------------------------------------------------------ */
+
+.theme-menu:not(.hidden) {
     opacity: 1;
+
     visibility: visible;
+
     pointer-events: auto;
+
     transform: translateY(0);
-    animation: themeMenuIn 0.15s ease-out;
 }
 
-@keyframes themeMenuIn {
-    from { opacity: 0; transform: translateY(-6px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+
+/* ------------------------------------------------------------
+   Dark mode dropdown
+   ------------------------------------------------------------ */
 
 .dark .theme-menu {
     background: #1f2937;
+
     border-color: #374151;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.4);
 }
+
+
+/* ------------------------------------------------------------
+   Theme options
+   ------------------------------------------------------------ */
 
 .theme-option {
     display: flex;
+
     align-items: center;
+
     gap: 0.6rem;
+
     width: 100%;
+
     padding: 0.5rem 0.75rem;
+
+    border: none;
+
     border-radius: 0.5rem;
+
     font-size: 0.875rem;
+
     font-weight: 500;
+
     color: #374151;
+
     background: transparent;
+
     text-align: left;
-    transition: background-color 0.15s ease;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.15s ease,
+        color 0.15s ease;
 }
 
 .theme-option:hover {
@@ -515,8 +693,14 @@ textarea.error {
     background-color: #374151;
 }
 
+
+/* ------------------------------------------------------------
+   Active theme option
+   ------------------------------------------------------------ */
+
 .theme-option.active-theme {
     color: #1f2937;
+
     font-weight: 700;
 }
 
@@ -532,542 +716,495 @@ textarea.error {
     color: #ffffff;
 }
 
-/*  WALKING CAT PET  */
+
+/* ============================================================
+   WALKING CAT PET
+   ============================================================ */
 
 #cat-pet {
     position: fixed;
+
     bottom: 0;
     left: 0;
+
     width: 124px;
     height: 102px;
+
     z-index: 70;
-    pointer-events: none; /* only the cat graphic itself is clickable */
+
+    pointer-events: none;
+
     will-change: transform;
 }
 
 #cat-svg {
     width: 100%;
     height: 100%;
+
     display: block;
+
     cursor: pointer;
+
     pointer-events: auto;
+
     overflow: visible;
-    filter: drop-shadow(0 6px 8px rgba(0,0,0,0.25));
+
+    filter:
+        drop-shadow(
+            0 6px 8px rgba(0, 0, 0, 0.25)
+        );
+
     transform-origin: 50% 100%;
-    transition: transform 0.15s ease;
+
+    transition:
+        transform 0.15s ease;
 }
 
 .dark #cat-svg {
-    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.55));
+    filter:
+        drop-shadow(
+            0 6px 12px rgba(0, 0, 0, 0.55)
+        );
 }
 
 #cat-pet.face-left #cat-svg {
     transform: scaleX(-1);
 }
 
-/* Gentle idle bob, inquisitive head tilt, and tail flick. */
-#cat-body, #cat-head, #cat-tail {
+
+/* ------------------------------------------------------------
+   Cat idle animation
+   ------------------------------------------------------------ */
+
+#cat-body,
+#cat-head,
+#cat-tail {
     transform-box: fill-box;
+
     transform-origin: 50% 100%;
 }
 
 #cat-pet.idle #cat-body {
-    animation: catIdleBob 2.6s ease-in-out infinite;
+    animation:
+        catIdleBob 2.6s ease-in-out infinite;
 }
 
 #cat-pet.idle #cat-head {
-    animation: catCuriousLook 3.6s ease-in-out infinite;
+    animation:
+        catCuriousLook 3.6s ease-in-out infinite;
 }
 
 #cat-pet.idle #cat-tail {
-    animation: catTailFlick 2.2s ease-in-out infinite;
+    animation:
+        catTailFlick 2.2s ease-in-out infinite;
+
     transform-origin: 10% 80%;
 }
 
+
 @keyframes catIdleBob {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-2px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-2px);
+    }
 }
+
 
 @keyframes catCuriousLook {
-    0%, 100% { transform: rotate(0deg); }
-    42%, 62% { transform: rotate(5deg) translateY(1px); }
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    42%,
+    62% {
+        transform:
+            rotate(5deg)
+            translateY(1px);
+    }
 }
+
 
 @keyframes catTailFlick {
-    0%, 68%, 100% { transform: rotate(0deg); }
-    80% { transform: rotate(12deg); }
-    90% { transform: rotate(-5deg); }
+
+    0%,
+    68%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    80% {
+        transform: rotate(12deg);
+    }
+
+    90% {
+        transform: rotate(-5deg);
+    }
 }
 
-/* walk cycle: legs swing alternately, body bounces slightly */
+
+/* ------------------------------------------------------------
+   Cat walking animation
+   ------------------------------------------------------------ */
+
 .cat-paw {
     transform-origin: 50% 0%;
 }
 
 #cat-pet.walking #cat-body,
 #cat-pet.walking #cat-head {
-    animation: catWalkBounce 0.42s ease-in-out infinite;
+    animation:
+        catWalkBounce 0.42s ease-in-out infinite;
 }
 
 @keyframes catWalkBounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-3px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-3px);
+    }
 }
 
 #cat-pet.walking .cat-paw-a {
-    animation: catStepA 0.42s ease-in-out infinite;
+    animation:
+        catStepA 0.42s ease-in-out infinite;
 }
 
 #cat-pet.walking .cat-paw-b {
-    animation: catStepB 0.42s ease-in-out infinite;
+    animation:
+        catStepB 0.42s ease-in-out infinite;
 }
 
 @keyframes catStepA {
-    0%, 100% { transform: rotate(16deg); }
-    50% { transform: rotate(-16deg); }
+
+    0%,
+    100% {
+        transform: rotate(16deg);
+    }
+
+    50% {
+        transform: rotate(-16deg);
+    }
 }
 
 @keyframes catStepB {
-    0%, 100% { transform: rotate(-16deg); }
-    50% { transform: rotate(16deg); }
+
+    0%,
+    100% {
+        transform: rotate(-16deg);
+    }
+
+    50% {
+        transform: rotate(16deg);
+    }
 }
 
-/* Click reaction: a playful little hop. */
+
+/* ------------------------------------------------------------
+   Cat jump
+   ------------------------------------------------------------ */
+
 #cat-pet.cat-jump #cat-svg {
-    animation: catJump 0.6s ease-out;
+    animation:
+        catJump 0.6s ease-out;
 }
 
 @keyframes catJump {
-    0% { transform: translateY(0) scale(1); }
-    30% { transform: translateY(-34px) scale(1.08); }
-    55% { transform: translateY(-34px) scale(1.05); }
-    100% { transform: translateY(0) scale(1); }
+
+    0% {
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+    30% {
+        transform:
+            translateY(-34px)
+            scale(1.08);
+    }
+
+    55% {
+        transform:
+            translateY(-34px)
+            scale(1.05);
+    }
+
+    100% {
+        transform:
+            translateY(0)
+            scale(1);
+    }
 }
 
 #cat-pet.face-left.cat-jump #cat-svg {
-    animation: catJumpFlipped 0.6s ease-out;
+    animation:
+        catJumpFlipped 0.6s ease-out;
 }
 
 @keyframes catJumpFlipped {
-    0% { transform: scaleX(-1) translateY(0) scale(1); }
-    30% { transform: scaleX(-1) translateY(-34px) scale(1.08); }
-    55% { transform: scaleX(-1) translateY(-34px) scale(1.05); }
-    100% { transform: scaleX(-1) translateY(0) scale(1); }
+
+    0% {
+        transform:
+            scaleX(-1)
+            translateY(0)
+            scale(1);
+    }
+
+    30% {
+        transform:
+            scaleX(-1)
+            translateY(-34px)
+            scale(1.08);
+    }
+
+    55% {
+        transform:
+            scaleX(-1)
+            translateY(-34px)
+            scale(1.05);
+    }
+
+    100% {
+        transform:
+            scaleX(-1)
+            translateY(0)
+            scale(1);
+    }
 }
+
+
+/* ------------------------------------------------------------
+   Cat speech bubble
+   ------------------------------------------------------------ */
 
 .cat-speech {
     position: absolute;
+
     bottom: 94px;
     left: 50%;
-    transform: translateX(-50%) translateY(6px) scale(0.95);
+
+    transform:
+        translateX(-50%)
+        translateY(6px)
+        scale(0.95);
+
     background: #1f2937;
-    color: #fff;
+
+    color: #ffffff;
+
     padding: 0.5rem 0.9rem;
+
     border-radius: 0.75rem;
+
     font-size: 0.8rem;
+
     font-weight: 500;
+
     max-width: 190px;
+
     width: max-content;
+
     opacity: 0;
+
     transition: all 0.2s ease;
+
     pointer-events: none;
+
     text-align: center;
+
     white-space: normal;
 }
 
 .dark .cat-speech {
     background: #f9fafb;
+
     color: #111827;
 }
 
 .cat-speech::after {
     content: '';
+
     position: absolute;
+
     bottom: -6px;
     left: 50%;
+
     margin-left: -6px;
+
     width: 12px;
     height: 12px;
+
     background: inherit;
+
     transform: rotate(45deg);
+
     border-radius: 2px;
 }
 
 .cat-speech.show {
     opacity: 1;
-    transform: translateX(-50%) translateY(0) scale(1);
+
+    transform:
+        translateX(-50%)
+        translateY(0)
+        scale(1);
 }
 
-/* Keep the cat readable but out of the way on small screens. */
-@media (max-width: 640px) {
-    #cat-pet {
-        width: 78px;
-        height: 64px;
-    }
-    .cat-speech {
-        bottom: 62px;
-        max-width: 140px;
-        font-size: 0.7rem;
-    }
+
+/* ============================================================
+   UTILITY CLASSES
+   ============================================================ */
+
+.transition-all {
+    transition:
+        all 0.3s cubic-bezier(
+            0.4,
+            0,
+            0.2,
+            1
+        );
 }
 
-@media (prefers-reduced-motion: reduce) {
-    #cat-pet.walking #cat-body,
-    #cat-pet.walking #cat-head,
-    #cat-pet.walking #cat-tail,
-    #cat-pet.walking .cat-paw,
-    #cat-pet.idle #cat-body,
-    #cat-pet.idle #cat-head,
-    #cat-pet.idle #cat-tail {
-        animation: none !important;
-    }
+.transition-colors {
+    transition:
+        color 0.3s ease;
 }
 
-/*  THEME SWITCHER */
-.theme-menu {
-    position: absolute;
-    top: calc(100% + 10px);
-    right: 0;
-    background: #ffffff;
-        border: 1px solid #e5e7eb;
-    border-radius: 0.75rem;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-    padding: 0.375rem;
-    min-width: 140px;
-    z-index: 60;
-    animation: themeMenuIn 0.15s ease-out;
+.transition-transform {
+    transition:
+        transform 0.3s ease;
 }
 
-@keyframes themeMenuIn {
-    from { opacity: 0; transform: translateY(-6px); }
-    to { opacity: 1; transform: translateY(0); }
+
+/* ============================================================
+   GRADIENT TEXT
+   ============================================================ */
+
+.gradient-text {
+    background: linear-gradient(
+        135deg,
+        #06b6d4 0%,
+        #0891b2 100%
+    );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    background-clip: text;
 }
 
-.dark .theme-menu {
-    background: #1f2937;
-    border-color: #374151;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+
+/* ============================================================
+   SECTION SPACING
+   ============================================================ */
+
+section {
+    position: relative;
 }
 
-.theme-option {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    width: 100%;
-    padding: 0.5rem 0.75rem;
-    border-radius: 0.5rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: #374151;
-    background: transparent;
-    text-align: left;
-    transition: background-color 0.15s ease;
-}
 
-.theme-option:hover {
-    background-color: #f3f4f6;
-}
-
-.dark .theme-option {
-    color: #e5e7eb;
-}
-
-.dark .theme-option:hover {
-    background-color: #374151;
-}
-
-.theme-option.active-theme {
-    color: #1f2937;
-    font-weight: 700;
-}
-
-.theme-option.active-theme i {
-    color: #1f2937;
-}
-
-.dark .theme-option.active-theme {
-    color: #ffffff;
-}
-
-.dark .theme-option.active-theme i {
-    color: #ffffff;
-}
-
-/*  WALKING CAT PET  */
-
-#cat-pet {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 124px;
-    height: 102px;
-    z-index: 70;
-    pointer-events: none; /* only the cat graphic itself is clickable */
-    will-change: transform;
-}
-
-#cat-svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-    cursor: pointer;
-    pointer-events: auto;
-    overflow: visible;
-    filter: drop-shadow(0 6px 8px rgba(0,0,0,0.25));
-    transform-origin: 50% 100%;
-    transition: transform 0.15s ease;
-}
-
-.dark #cat-svg {
-    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.55));
-}
-
-#cat-pet.face-left #cat-svg {
-    transform: scaleX(-1);
-}
-
-/* Gentle idle bob, inquisitive head tilt, and tail flick. */
-#cat-body, #cat-head, #cat-tail {
-    transform-box: fill-box;
-    transform-origin: 50% 100%;
-}
-
-#cat-pet.idle #cat-body {
-    animation: catIdleBob 2.6s ease-in-out infinite;
-}
-
-#cat-pet.idle #cat-head {
-    animation: catCuriousLook 3.6s ease-in-out infinite;
-}
-
-#cat-pet.idle #cat-tail {
-    animation: catTailFlick 2.2s ease-in-out infinite;
-    transform-origin: 10% 80%;
-}
-
-@keyframes catIdleBob {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-2px); }
-}
-
-@keyframes catCuriousLook {
-    0%, 100% { transform: rotate(0deg); }
-    42%, 62% { transform: rotate(5deg) translateY(1px); }
-}
-
-@keyframes catTailFlick {
-    0%, 68%, 100% { transform: rotate(0deg); }
-    80% { transform: rotate(12deg); }
-    90% { transform: rotate(-5deg); }
-}
-
-/* walk cycle: legs swing alternately, body bounces slightly */
-.cat-paw {
-    transform-origin: 50% 0%;
-}
-
-#cat-pet.walking #cat-body,
-#cat-pet.walking #cat-head {
-    animation: catWalkBounce 0.42s ease-in-out infinite;
-}
-
-@keyframes catWalkBounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-3px); }
-}
-
-#cat-pet.walking .cat-paw-a {
-    animation: catStepA 0.42s ease-in-out infinite;
-}
-
-#cat-pet.walking .cat-paw-b {
-    animation: catStepB 0.42s ease-in-out infinite;
-}
-
-@keyframes catStepA {
-    0%, 100% { transform: rotate(16deg); }
-    50% { transform: rotate(-16deg); }
-}
-
-@keyframes catStepB {
-    0%, 100% { transform: rotate(-16deg); }
-    50% { transform: rotate(16deg); }
-}
-
-/* Click reaction: a playful little hop. */
-#cat-pet.cat-jump #cat-svg {
-    animation: catJump 0.6s ease-out;
-}
-
-@keyframes catJump {
-    0% { transform: translateY(0) scale(1); }
-    30% { transform: translateY(-34px) scale(1.08); }
-    55% { transform: translateY(-34px) scale(1.05); }
-    100% { transform: translateY(0) scale(1); }
-}
-
-#cat-pet.face-left.cat-jump #cat-svg {
-    animation: catJumpFlipped 0.6s ease-out;
-}
-
-@keyframes catJumpFlipped {
-    0% { transform: scaleX(-1) translateY(0) scale(1); }
-    30% { transform: scaleX(-1) translateY(-34px) scale(1.08); }
-    55% { transform: scaleX(-1) translateY(-34px) scale(1.05); }
-    100% { transform: scaleX(-1) translateY(0) scale(1); }
-}
-
-.cat-speech {
-    position: absolute;
-    bottom: 94px;
-    left: 50%;
-    transform: translateX(-50%) translateY(6px) scale(0.95);
-    background: #1f2937;
-    color: #fff;
-    padding: 0.5rem 0.9rem;
-    border-radius: 0.75rem;
-    font-size: 0.8rem;
-    font-weight: 500;
-    max-width: 190px;
-    width: max-content;
-    opacity: 0;
-    transition: all 0.2s ease;
-    pointer-events: none;
-    text-align: center;
-    white-space: normal;
-}
-
-.dark .cat-speech {
-    background: #f9fafb;
-    color: #111827;
-}
-
-.cat-speech::after {
-    content: '';
-    position: absolute;
-    bottom: -6px;
-    left: 50%;
-    margin-left: -6px;
-    width: 12px;
-    height: 12px;
-    background: inherit;
-    transform: rotate(45deg);
-    border-radius: 2px;
-}
-
-.cat-speech.show {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0) scale(1);
-}
-
-/* Keep the cat readable but out of the way on small screens. */
-@media (max-width: 640px) {
-    #cat-pet {
-        width: 78px;
-        height: 64px;
-    }
-    .cat-speech {
-        bottom: 62px;
-        max-width: 140px;
-        font-size: 0.7rem;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    #cat-pet.walking #cat-body,
-    #cat-pet.walking #cat-head,
-    #cat-pet.walking #cat-tail,
-    #cat-pet.walking .cat-paw,
-    #cat-pet.idle #cat-body,
-    #cat-pet.idle #cat-head,
-    #cat-pet.idle #cat-tail {
-        animation: none !important;
-    }
-}
-
-/*  RESPONSIVE ADJUSTMENTS  */
+/* ============================================================
+   MOBILE NAVIGATION
+   ============================================================ */
 
 @media (max-width: 768px) {
+
     .nav-link.active::after {
         display: none;
     }
-    
+
     .nav-link.active {
         background-color: #f3f4f6;
+
         border-radius: 0.375rem;
     }
 
     .dark .nav-link.active {
         background-color: #1f2937;
     }
+}
 
-    .dark .nav-link.active {
-        background-color: #1f2937;
+
+/* ============================================================
+   MOBILE CAT
+   ============================================================ */
+
+@media (max-width: 640px) {
+
+    #cat-pet {
+        width: 78px;
+        height: 64px;
+    }
+
+    .cat-speech {
+        bottom: 62px;
+
+        max-width: 140px;
+
+        font-size: 0.7rem;
     }
 }
 
-/*  UTILITY CLASSES  */
 
-.transition-all {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.transition-colors {
-    transition: color 0.3s ease;
-}
-
-.transition-transform {
-    transition: transform 0.3s ease;
-}
-
-/*  GRADIENT TEXT  */
-
-.gradient-text {
-    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-/*  SECTION SPACING  */
-
-section {
-    position: relative;
-}
-
-/*  REDUCED MOTION PREFERENCE  */
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
 
 @media (prefers-reduced-motion: reduce) {
+
     *,
     *::before,
     *::after {
         animation-duration: 0.01ms !important;
+
         animation-iteration-count: 1 !important;
+
         transition-duration: 0.01ms !important;
+    }
+
+    #cat-pet.walking #cat-body,
+    #cat-pet.walking #cat-head,
+    #cat-pet.walking #cat-tail,
+    #cat-pet.walking .cat-paw,
+    #cat-pet.idle #cat-body,
+    #cat-pet.idle #cat-head,
+    #cat-pet.idle #cat-tail {
+        animation: none !important;
     }
 }
 
-/*  PRINT STYLES  */
+
+/* ============================================================
+   PRINT STYLES
+   ============================================================ */
 
 @media print {
+
     nav,
     footer,
     #cat-pet,
     #bg-canvas {
-    footer,
-    #cat-pet,
-    #bg-canvas {
-        display: none;
+        display: none !important;
     }
-    
+
     body {
         background: white;
+
         color: #1e293b;
     }
-    
+
     a {
         text-decoration: underline;
     }
-}
 }
