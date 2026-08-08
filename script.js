@@ -1,4 +1,4 @@
-// ========== MOBILE MENU TOGGLE ========== 
+//  MOBILE MENU TOGGLE  
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 const navLinks = document.querySelectorAll('.nav-link');
@@ -29,7 +29,7 @@ navLinks.forEach(link => {
     });
 });
 
-// ========== SMOOTH SCROLLING & ACTIVE NAV HIGHLIGHTING ========== 
+// SMOOTH SCROLLING & ACTIVE NAV HIGHLIGHTING 
 
 function updateActiveNavLink() {
     const sections = document.querySelectorAll('section');
@@ -57,7 +57,7 @@ function updateActiveNavLink() {
 window.addEventListener('scroll', updateActiveNavLink);
 window.addEventListener('load', updateActiveNavLink);
 
-// ========== INTERSECTION OBSERVER FOR SCROLL ANIMATIONS ========== 
+//  INTERSECTION OBSERVER FOR SCROLL ANIMATIONS 
 
 const observerOptions = {
     threshold: 0.1,
@@ -272,7 +272,7 @@ contactForm.addEventListener('submit', async (e) => {
     }
 });
 
-// ========== REAL-TIME INPUT VALIDATION ========== 
+// REAL-TIME INPUT VALIDATION 
 
 const inputs = document.querySelectorAll('#name, #email, #message');
 
@@ -329,7 +329,7 @@ inputs.forEach(input => {
     });
 });
 
-// ========== KEYBOARD NAVIGATION ========== 
+//  KEYBOARD NAVIGATION 
 
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
@@ -342,7 +342,7 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// ========== PERFORMANCE OPTIMIZATION ========== 
+//  PERFORMANCE OPTIMIZATION 
 
 let ticking = false;
 
@@ -356,9 +356,8 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// ==================================================================
-// ========== DARK MODE / THEME SWITCHER (Light / Dark / System) ====
-// ==================================================================
+// DARK MODE / THEME SWITCHER (Light / Dark / System) 
+
 
 const THEME_KEY = 'theme';
 const systemMedia = window.matchMedia('(prefers-color-scheme: dark)');
@@ -590,9 +589,7 @@ document.addEventListener('DOMContentLoaded', () => {
     scheduleNextMove();
 });
 
-// ==================================================================
-// ========== 3D BACKGROUND (Three.js floating particles) ===========
-// ==================================================================
+//  3D BACKGROUND (Three.js floating particles) 
 
 (function initBackground3D() {
     const canvas = document.getElementById('bg-canvas');
@@ -787,6 +784,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 })();
 
-// ========== INITIALIZATION ========== 
+//  INITIALIZATION  
 
 console.log('Portfolio script loaded successfully');
