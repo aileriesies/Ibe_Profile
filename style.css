@@ -18,6 +18,10 @@ html {
     background: #111827;
 }
 
+.dark ::-webkit-scrollbar-track {
+    background: #111827;
+}
+
 ::-webkit-scrollbar-thumb {
     background: #cbd5e1;
     border-radius: 6px;
@@ -26,6 +30,22 @@ html {
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
+
+/* ========== 3D BACKGROUND ========== */
+
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    display: block;
+    pointer-events: none;
+}
+
+/* Sections stay transparent where they should show the 3D backdrop behind them.
+   Sections with an explicit bg color (bg-gray-50 / bg-gray-900) already sit on top. */
 
 /* ========== SCROLLING TICKER ANIMATION ========== */
 
@@ -186,6 +206,16 @@ html {
     background-color: #374151;
 }
 
+.dark .skill-badge {
+    background-color: #1f2937;
+    color: #f3f4f6;
+    border-color: #374151;
+}
+
+.dark .skill-badge:hover {
+    background-color: #374151;
+}
+
 /* ========== TECH TAGS ========== */
 
 .tech-tag {
@@ -198,6 +228,11 @@ html {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+}
+
+.dark .tech-tag {
+    background-color: #1f2937;
+    color: #9ca3af;
 }
 
 .dark .tech-tag {
@@ -280,6 +315,10 @@ html {
     color: #ffffff !important;
 }
 
+.dark .nav-link.active {
+    color: #ffffff !important;
+}
+
 .nav-link.active::after {
     content: '';
     position: absolute;
@@ -295,6 +334,10 @@ html {
     background-color: #ffffff;
 }
 
+.dark .nav-link.active::after {
+    background-color: #ffffff;
+}
+
 /* ========== FOCUS STYLES FOR ACCESSIBILITY ========== */
 
 button:focus,
@@ -303,6 +346,13 @@ textarea:focus,
 a:focus {
     outline: 2px solid #1f2937;
     outline-offset: 2px;
+}
+
+.dark button:focus,
+.dark input:focus,
+.dark textarea:focus,
+.dark a:focus {
+    outline-color: #ffffff;
 }
 
 .dark button:focus,
@@ -333,9 +383,20 @@ textarea:focus {
     box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
 }
 
+.dark input[type="text"]:focus,
+.dark input[type="email"]:focus,
+.dark textarea:focus {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
 input::placeholder,
 textarea::placeholder {
     color: #cbd5e1;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+    color: #6b7280;
 }
 
 .dark input::placeholder,
@@ -349,6 +410,11 @@ input.error,
 textarea.error {
     border-color: #ef4444 !important;
     background-color: #fef2f2;
+}
+
+.dark input.error,
+.dark textarea.error {
+    background-color: rgba(239, 68, 68, 0.1);
 }
 
 .dark input.error,
@@ -648,6 +714,273 @@ textarea.error {
     }
 }
 
+/* ========== THEME SWITCHER ========== */
+
+#theme-switcher, #theme-switcher-mobile {
+    /* hover intent for desktop; click also works via JS for touch/keyboard */
+}
+
+.theme-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    padding: 0.375rem;
+    min-width: 140px;
+    z-index: 60;
+    animation: themeMenuIn 0.15s ease-out;
+}
+
+@keyframes themeMenuIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.dark .theme-menu {
+    background: #1f2937;
+    border-color: #374151;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.theme-option {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+    background: transparent;
+    text-align: left;
+    transition: background-color 0.15s ease;
+}
+
+.theme-option:hover {
+    background-color: #f3f4f6;
+}
+
+.dark .theme-option {
+    color: #e5e7eb;
+}
+
+.dark .theme-option:hover {
+    background-color: #374151;
+}
+
+.theme-option.active-theme {
+    color: #1f2937;
+    font-weight: 700;
+}
+
+.theme-option.active-theme i {
+    color: #1f2937;
+}
+
+.dark .theme-option.active-theme {
+    color: #ffffff;
+}
+
+.dark .theme-option.active-theme i {
+    color: #ffffff;
+}
+
+/* ========== WALKING CAT PET ========== */
+
+#cat-pet {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 124px;
+    height: 102px;
+    z-index: 70;
+    pointer-events: none; /* only the cat graphic itself is clickable */
+    will-change: transform;
+}
+
+#cat-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: pointer;
+    pointer-events: auto;
+    overflow: visible;
+    filter: drop-shadow(0 6px 8px rgba(0,0,0,0.25));
+    transform-origin: 50% 100%;
+    transition: transform 0.15s ease;
+}
+
+.dark #cat-svg {
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.55));
+}
+
+#cat-pet.face-left #cat-svg {
+    transform: scaleX(-1);
+}
+
+/* Gentle idle bob, inquisitive head tilt, and tail flick. */
+#cat-body, #cat-head, #cat-tail {
+    transform-box: fill-box;
+    transform-origin: 50% 100%;
+}
+
+#cat-pet.idle #cat-body {
+    animation: catIdleBob 2.6s ease-in-out infinite;
+}
+
+#cat-pet.idle #cat-head {
+    animation: catCuriousLook 3.6s ease-in-out infinite;
+}
+
+#cat-pet.idle #cat-tail {
+    animation: catTailFlick 2.2s ease-in-out infinite;
+    transform-origin: 10% 80%;
+}
+
+@keyframes catIdleBob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-2px); }
+}
+
+@keyframes catCuriousLook {
+    0%, 100% { transform: rotate(0deg); }
+    42%, 62% { transform: rotate(5deg) translateY(1px); }
+}
+
+@keyframes catTailFlick {
+    0%, 68%, 100% { transform: rotate(0deg); }
+    80% { transform: rotate(12deg); }
+    90% { transform: rotate(-5deg); }
+}
+
+/* walk cycle: legs swing alternately, body bounces slightly */
+.cat-paw {
+    transform-origin: 50% 0%;
+}
+
+#cat-pet.walking #cat-body,
+#cat-pet.walking #cat-head {
+    animation: catWalkBounce 0.42s ease-in-out infinite;
+}
+
+@keyframes catWalkBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+#cat-pet.walking .cat-paw-a {
+    animation: catStepA 0.42s ease-in-out infinite;
+}
+
+#cat-pet.walking .cat-paw-b {
+    animation: catStepB 0.42s ease-in-out infinite;
+}
+
+@keyframes catStepA {
+    0%, 100% { transform: rotate(16deg); }
+    50% { transform: rotate(-16deg); }
+}
+
+@keyframes catStepB {
+    0%, 100% { transform: rotate(-16deg); }
+    50% { transform: rotate(16deg); }
+}
+
+/* Click reaction: a playful little hop. */
+#cat-pet.cat-jump #cat-svg {
+    animation: catJump 0.6s ease-out;
+}
+
+@keyframes catJump {
+    0% { transform: translateY(0) scale(1); }
+    30% { transform: translateY(-34px) scale(1.08); }
+    55% { transform: translateY(-34px) scale(1.05); }
+    100% { transform: translateY(0) scale(1); }
+}
+
+#cat-pet.face-left.cat-jump #cat-svg {
+    animation: catJumpFlipped 0.6s ease-out;
+}
+
+@keyframes catJumpFlipped {
+    0% { transform: scaleX(-1) translateY(0) scale(1); }
+    30% { transform: scaleX(-1) translateY(-34px) scale(1.08); }
+    55% { transform: scaleX(-1) translateY(-34px) scale(1.05); }
+    100% { transform: scaleX(-1) translateY(0) scale(1); }
+}
+
+.cat-speech {
+    position: absolute;
+    bottom: 94px;
+    left: 50%;
+    transform: translateX(-50%) translateY(6px) scale(0.95);
+    background: #1f2937;
+    color: #fff;
+    padding: 0.5rem 0.9rem;
+    border-radius: 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    max-width: 190px;
+    width: max-content;
+    opacity: 0;
+    transition: all 0.2s ease;
+    pointer-events: none;
+    text-align: center;
+    white-space: normal;
+}
+
+.dark .cat-speech {
+    background: #f9fafb;
+    color: #111827;
+}
+
+.cat-speech::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    margin-left: -6px;
+    width: 12px;
+    height: 12px;
+    background: inherit;
+    transform: rotate(45deg);
+    border-radius: 2px;
+}
+
+.cat-speech.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+}
+
+/* Keep the cat readable but out of the way on small screens. */
+@media (max-width: 640px) {
+    #cat-pet {
+        width: 78px;
+        height: 64px;
+    }
+    .cat-speech {
+        bottom: 62px;
+        max-width: 140px;
+        font-size: 0.7rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #cat-pet.walking #cat-body,
+    #cat-pet.walking #cat-head,
+    #cat-pet.walking #cat-tail,
+    #cat-pet.walking .cat-paw,
+    #cat-pet.idle #cat-body,
+    #cat-pet.idle #cat-head,
+    #cat-pet.idle #cat-tail {
+        animation: none !important;
+    }
+}
+
 /* ========== RESPONSIVE ADJUSTMENTS ========== */
 
 @media (max-width: 768px) {
@@ -658,6 +991,10 @@ textarea.error {
     .nav-link.active {
         background-color: #f3f4f6;
         border-radius: 0.375rem;
+    }
+
+    .dark .nav-link.active {
+        background-color: #1f2937;
     }
 
     .dark .nav-link.active {
@@ -713,6 +1050,9 @@ section {
     footer,
     #cat-pet,
     #bg-canvas {
+    footer,
+    #cat-pet,
+    #bg-canvas {
         display: none;
     }
     
@@ -725,3 +1065,4 @@ section {
         text-decoration: underline;
     }
 }
+
