@@ -449,10 +449,6 @@ textarea.error {
 
 /* ========== THEME SWITCHER ========== */
 
-#theme-switcher, #theme-switcher-mobile {
-    /* hover intent for desktop; click also works via JS for touch/keyboard */
-}
-
 .theme-menu {
     position: absolute;
     top: calc(100% + 10px);
@@ -464,6 +460,20 @@ textarea.error {
     padding: 0.375rem;
     min-width: 140px;
     z-index: 60;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-6px);
+    transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s ease;
+}
+
+.theme-menu.show,
+.theme-menu.active,
+.theme-menu.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
     animation: themeMenuIn 0.15s ease-out;
 }
 
@@ -716,16 +726,12 @@ textarea.error {
 
 /* ========== THEME SWITCHER ========== */
 
-#theme-switcher, #theme-switcher-mobile {
-    /* hover intent for desktop; click also works via JS for touch/keyboard */
-}
-
 .theme-menu {
     position: absolute;
     top: calc(100% + 10px);
     right: 0;
     background: #ffffff;
-    border: 1px solid #e5e7eb;
+        border: 1px solid #e5e7eb;
     border-radius: 0.75rem;
     box-shadow: 0 10px 25px rgba(0,0,0,0.12);
     padding: 0.375rem;
@@ -1065,4 +1071,4 @@ section {
         text-decoration: underline;
     }
 }
-
+}
